@@ -2,7 +2,9 @@
   <span>My Application</span>
   <span class="spacer"></span>
   <ul class="menu">
-    <li class="menu-item"><a routerLink="/home" routerLinkActive="active">Home</a></li>
+    <!-- {{ 'Text' }} -->
+    <li class="menu-item"><a [routerLink]="'/home'" [routerLinkActive]="'active'">Home</a></li>
     <li class="menu-item"><a routerLink="/get-started" routerLinkActive="active">Get started</a></li>
+    <li class="menu-item"><a routerLink="/products" routerLinkActive="active">Products</a></li>
   </ul>
 </mat-toolbar>

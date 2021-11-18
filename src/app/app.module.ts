@@ -6,10 +6,10 @@ import { GetStartedComponent } from './components/get-started/get-started.compon
 import { ExponentialStrengthPipe } from './pipes/exponential-strength.pipe';
 import { HeaderComponent } from './components/layout/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material.module';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './modules/shared.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    MaterialModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

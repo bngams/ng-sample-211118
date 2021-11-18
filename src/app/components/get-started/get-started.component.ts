@@ -20,6 +20,7 @@ export class GetStartedComponent implements OnInit {
 
   clickMe(event: unknown): void {
     console.log('Bouton cliqué', event);
+    //
   }
 
   toggleState(): void {
