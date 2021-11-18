@@ -1,0 +1,21 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.menu {
+  display: flex;
+  list-style-type: none;
+  margin-left: 0;
+}
+
+.menu-item {
+  margin: 15px
+}
+
+.menu-item a {
+  color: white;
+}
+
+.menu-item a.active {
+  font-weight: bold;
+}
