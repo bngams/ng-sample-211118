@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { Product } from '../../models/product';
 import { PRODUCTS } from '../mocks/products.mock';
 
@@ -18,6 +19,24 @@ export class ProductListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    const observable = new Observable((subscriber) => {
+      subscriber.next(1);
+      subscriber.next(2);
+      subscriber.complete();
+    });
+
+    const observer = {
+      next: (r: any) => console.log(r),
+      complete: () => console.log('done')
+    }
+
+    // http.get => observable
+    observable
+      .pipe(
+        map((r) => r + 'test')
+      ).subscribe(observer);
+
+    observable.subscribe((r: any) => console.log(r));
   }
 
 }
