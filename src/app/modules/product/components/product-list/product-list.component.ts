@@ -8,8 +8,12 @@ import { PRODUCTS } from '../mocks/products.mock';
   styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
+  // products from parent with input
   @Input()
   productsInput: Product[] = [];
+
+  // local products attribute
+  products: Product[] = [];
 
   constructor() { }
 
