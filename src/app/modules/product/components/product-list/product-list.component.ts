@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { Product } from '../../models/product';
-import { PRODUCTS } from '../mocks/products.mock';
+import { ProductService } from '../../services/product.service';
 
+/**
+ * My doc
+ */
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -16,27 +19,28 @@ export class ProductListComponent implements OnInit {
   // local products attribute
   products: Product[] = [];
 
-  constructor() { }
+  // products from API
+  apiProducts: Product[] = [];
+
+  // attribute! <=> no aassignment
+  $apiProductsObservable!: Observable<Product[]>;
+
+  // DI (dependency Injection)
+  constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
-    const observable = new Observable((subscriber) => {
-      subscriber.next(1);
-      subscriber.next(2);
-      subscriber.complete();
-    });
+    // this.initProducts();
+    this.initProductsObservable();
+  }
 
-    const observer = {
-      next: (r: any) => console.log(r),
-      complete: () => console.log('done')
-    }
+  initProducts(): void {
+    this.productService.getProducts().subscribe(
+      res => this.apiProducts = res
+    )
+  }
 
-    // http.get => observable
-    observable
-      .pipe(
-        map((r) => r + 'test')
-      ).subscribe(observer);
-
-    observable.subscribe((r: any) => console.log(r));
+  initProductsObservable(): void {
+    this.$apiProductsObservable = this.productService.getProducts();
   }
 
 }

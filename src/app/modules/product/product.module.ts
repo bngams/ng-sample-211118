@@ -19,6 +19,6 @@ import { SharedModule } from '../shared.module';
   imports: [
     SharedModule,
     ProductRoutingModule
-  ]
+  ],
 })
 export class ProductModule { }
